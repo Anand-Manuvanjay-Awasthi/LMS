@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="application">
+    <h1>LIBRARY MANAGEMENT SYSTEM</h1>
+    <p id="message" class="message" aria-live="polite">Ready.</p>
+
+    <section class="panel">
+        <h2>Member Details</h2>
+        <form id="member-form">
+            <div class="form-row search-row">
+                <label for="member-id">Member ID:</label>
+                <input id="member-id" type="number" min="1">
+                <button id="find-member-button" type="button">SEARCH</button>
+            </div>
+            <div class="form-row">
+                <label for="first-name">First Name:</label>
+                <input id="first-name" type="text" required>
+            </div>
+            <div class="form-row">
+                <label for="last-name">Last Name:</label>
+                <input id="last-name" type="text" required>
+            </div>
+            <div class="form-row">
+                <label for="member-email">Email:</label>
+                <input id="member-email" type="email" required>
+            </div>
+            <div class="button-row">
+                <button type="submit">SAVE MEMBER</button>
+                <button id="clear-member-button" type="button">CLEAR</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="panel">
+        <h2>Book Details</h2>
+        <form id="book-form">
+            <div class="form-row search-row">
+                <label for="book-id">Book ID:</label>
+                <input id="book-id" type="number" min="1">
+                <button id="find-book-button" type="button">SEARCH</button>
+            </div>
+            <div class="form-row">
+                <label for="book-title">Title:</label>
+                <input id="book-title" type="text" required>
+            </div>
+            <div class="form-row">
+                <label for="book-author">Author:</label>
+                <input id="book-author" type="text" required>
+            </div>
+            <div class="form-row">
+                <label for="book-isbn">ISBN:</label>
+                <input id="book-isbn" type="text">
+            </div>
+            <div class="form-row">
+                <label for="published-year">Published Year:</label>
+                <input id="published-year" type="number" min="0">
+            </div>
+            <div class="form-row">
+                <label>Availability:</label>
+                <span id="book-availability">New books are available.</span>
+            </div>
+            <div class="button-row">
+                <button type="submit">SAVE BOOK</button>
+                <button id="clear-book-button" type="button">CLEAR</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="panel">
+        <h2>Borrowing Details</h2>
+        <form id="borrowing-form">
+            <div class="form-row">
+                <label for="borrow-date">Borrow Date:</label>
+                <input id="borrow-date" type="text" readonly>
+            </div>
+            <div class="form-row">
+                <label for="borrow-book">Select Book:</label>
+                <select id="borrow-book" required>
+                    <option value="">Choose an available book</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="borrow-member">Select Member:</label>
+                <select id="borrow-member" required>
+                    <option value="">Choose a member</option>
+                </select>
+            </div>
+            <div class="button-row">
+                <button type="submit">BORROW BOOK</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="panel records-panel">
+        <h2>Library Records</h2>
+        <div class="table-area">
+            <h3>Books</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Available</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="books-table-body"></tbody>
+            </table>
+        </div>
+
+        <div class="table-area">
+            <h3>Members</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="members-table-body"></tbody>
+            </table>
+        </div>
+
+        <div class="table-area">
+            <h3>Borrowing Records</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Book</th>
+                    <th>Member</th>
+                    <th>Borrowed</th>
+                    <th>Returned</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody id="borrowings-table-body"></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
